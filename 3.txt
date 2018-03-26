@@ -1,0 +1,92 @@
+#include <iostream>
+#include <string>
+#include <iomanip>
+using namespace std;
+ 
+class Book
+{
+private:
+    string m_genre;
+    string m_author;
+    string m_name;
+    int m_year;
+    double m_price;
+ 
+public:
+    Book(string genre = "Genre", string author = "Author", string name = "Name of the book", int year = 0, double price = 0):
+        m_genre(genre),
+        m_author(author),
+        m_name(name),
+        m_year(year),
+        m_price(price)
+    {}
+ 
+    const string& getGenre()
+    { 
+    	return m_genre;
+    }
+    const string& getAuthor()
+    {
+    	return m_author;
+    }
+    const string& getName()
+    {
+    	return m_name;
+    }
+    const int& getYear()
+    {
+    	return m_year;
+    }
+    const double& getPrice()
+    {
+    	return m_price;
+    }
+    void setGenre(const string& genre)
+    {
+    	m_genre = genre;
+    }
+    void setAuthor(const string& author)
+    {
+    	m_author = author;
+    }
+    void setName(const string& name)
+    {
+    	m_name = name;
+    }
+    void setYear(const int& year)
+    {
+    	m_year = year;
+    }
+    void setPrice(const double& price)
+    {
+    	m_price = price;
+    }
+    void show() const
+    {
+        cout << m_genre << "\n" << m_author << "\n" << m_name << "\n" << m_year << "\n$" << fixed << setprecision(2) << setfill('0') << m_price << "\n\n";
+    }
+};
+ 
+int main()
+{
+    Book book1;
+    book1.show();
+ 
+    Book book2("Sci-Fi", "Fernando Herbert", "Dune", 1965, 9.99);
+    book2.show();
+
+    cout << "INCORRECT!\n\n";
+ 
+    book2.setAuthor("Frank Herbert");
+    book2.show();
+
+    Book book3("Satirical novel", "Chuck Palahniuk", "Fight Club", 1996, 999.00);
+    book3.show();
+
+    cout << "INCORRECT!\n\n";
+
+    book3.setPrice(14.99);
+    book3.show();
+
+    	return 0;
+}
